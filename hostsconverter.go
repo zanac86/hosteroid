@@ -128,7 +128,7 @@ func LoadHosts(files []string) Hosts {
 }
 
 func (hosts Hosts) SaveHosts(filename string) {
-	log.Printf("Saving hosts (%d records)...", len(hosts))
+	log.Printf("Saving hosts to %s (%d records)...", filename, len(hosts))
 	f, err := os.Create(filename)
 	defer f.Close()
 	if err != nil {

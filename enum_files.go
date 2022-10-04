@@ -46,6 +46,7 @@ func GetFilesList(dirname string, ext string, getFullPathname bool) ([]string, e
 	return namesFiles, nil
 }
 
+// ListFiles return filenames in dir with extensions in list exts
 func ListFiles(dir string, exts []string, getFullPathname bool) []string {
 	var files []string
 	for _, ext := range exts {
@@ -58,7 +59,7 @@ func ListFiles(dir string, exts []string, getFullPathname bool) []string {
 	return files
 }
 
-// Split full file path+name to (dir, base, ext)
+// SplitPath split full file path+name to (dir, base, ext)
 func SplitPath(path string) (string, string, string) {
 	dir, file := filepath.Split(path)
 	ext := filepath.Ext(path) // include dot (.mp3)

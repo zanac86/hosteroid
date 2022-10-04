@@ -14,9 +14,13 @@ var (
 	}
 )
 
+// SystemHostFilename return path for save results
 func SystemHostFilename() string {
+	/*
+		Windows
+		"c:\\windows\\system32\\drivers\\etc\\hosts"
+	*/
 	return "_hosts_"
-	// return "c:\\windows\\system32\\drivers\\etc\\hosts"
 }
 
 func main() {
@@ -36,6 +40,7 @@ func main() {
 	hosts2 := hosts.FilterHosts(Hosts_Always).RemoveDuplicates().AllowHosts(hostsAllow).Sort()
 
 	hosts2 = append(hosts2, Hosts_Always...)
+
 	hosts2.SaveHosts(SystemHostFilename())
 
 	log.Println("Have a nice day!")
